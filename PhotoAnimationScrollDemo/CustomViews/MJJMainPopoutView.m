@@ -16,7 +16,8 @@
 
 // 血糖/血压 按钮
 @property (nonatomic,strong)UIButton *actionBtn;
-
+//2 小时提醒按钮
+@property (nonatomic,strong)UIButton *remindBtn;
 
 
 @end
@@ -48,9 +49,18 @@ static NSString *indentify = @"MJJCollectionViewCell";
 
 // 加载子视图
 - (void)addsubviews{
+
     [self addSubview:self.collectionView];
+
     [self addSubview:self.actionBtn];
 
+//    [self addRemindBtn];
+
+}
+
+- (void)addRemindBtn{
+
+    [self addSubview:self.remindBtn];
 }
 
 #pragma makr - collectionView delegate
@@ -93,6 +103,25 @@ static NSString *indentify = @"MJJCollectionViewCell";
 
 }
 
+- (void)setShowRemindBtn:(BOOL)showRemindBtn{
+
+    _showRemindBtn = showRemindBtn;
+
+    if (_showRemindBtn) {
+
+        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 35 , 100, 44)];
+
+        _remindBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 80 , 100, 44)];
+
+        _remindBtn.hidden = NO;
+        
+    }else{
+        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 70 , 100, 44)];
+        _remindBtn.hidden = YES;
+    }
+
+}
+
 
 - (UICollectionView *)collectionView
 {
@@ -100,15 +129,14 @@ static NSString *indentify = @"MJJCollectionViewCell";
         MJJCollectionViewFlowLayout *flow = [[MJJCollectionViewFlowLayout alloc] init];//MJJCollectionViewFlowLayout
         flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         flow.itemSize = CGSizeMake(self.width / 2,self.width / 2);
-        flow.minimumLineSpacing = 10;
-        flow.minimumInteritemSpacing = 10;
-        flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        flow.minimumLineSpacing = 20;
+        flow.minimumInteritemSpacing = 20;
         flow.needAlpha = YES;
         flow.delegate = self;
         CGFloat oneX =self.width / 4;
-        flow.sectionInset = UIEdgeInsetsMake(0, oneX, 0, oneX);
+        flow.sectionInset = UIEdgeInsetsMake(30, oneX, 50, oneX);
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height * 1) collectionViewLayout:flow];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height) collectionViewLayout:flow];
         _collectionView.backgroundColor = [UIColor redColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
@@ -120,7 +148,7 @@ static NSString *indentify = @"MJJCollectionViewCell";
 
 - (UIButton *)actionBtn{
     if (!_actionBtn) {
-        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 50 , 100, 44)];
+        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 80 , 100, 44)];
         _actionBtn.backgroundColor = [UIColor redColor];
         [_actionBtn setTitle:@"血糖数据 >" forState:UIControlStateNormal];
         [_actionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -136,6 +164,29 @@ static NSString *indentify = @"MJJCollectionViewCell";
         [self.delegate clickActionBtn:self.selectedIndex];
     }
 }
+
+
+- (UIButton *)remindBtn{
+
+    if (!_remindBtn) {
+        _remindBtn = [[UIButton alloc] init];
+        _remindBtn.backgroundColor = [UIColor greenColor];
+        [_remindBtn setTitle:@"12:59:33" forState:UIControlStateNormal];
+        [_remindBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_remindBtn addTarget:self action:@selector(clickRemindBtn) forControlEvents:UIControlEventTouchUpInside];
+
+    }
+    return _remindBtn;
+}
+
+- (void)clickRemindBtn{
+
+    if ([self.delegate respondsToSelector:@selector(clickRemindBtn)]) {
+        [self.delegate clickRemindBtn];
+    }
+}
+
+
 
 #pragma CustomLayout的代理方法
 - (void)collectioViewScrollToIndex:(NSInteger)index

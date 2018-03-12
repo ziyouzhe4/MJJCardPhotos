@@ -23,8 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+
     [self.popView showInSuperView:self.view];
+//    self.popView.showRemindBtn = NO;
 
 }
 
@@ -40,11 +42,17 @@
 
 }
 
+- (void)clickRemindBtn{
+
+
+
+}
+
 #pragma mark - 懒加载数据
 - (MJJMainPopoutView *)popView
 {
     if (_popView == nil) {
-        _popView = [[MJJMainPopoutView alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT * 0.57)];
+        _popView = [[MJJMainPopoutView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.60)];
         _popView.dataSource = self.dataSource;
         _popView.backgroundColor = [UIColor greenColor];
         _popView.delegate = self;
