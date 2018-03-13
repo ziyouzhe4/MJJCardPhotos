@@ -35,6 +35,27 @@ static NSString *indentify = @"MJJCollectionViewCell";
     [superView addSubview:self];
 }
 
+- (void)layoutSubviews{
+
+    [super layoutSubviews];
+
+    if (_showRemindBtn) {
+
+        _remindBtn.hidden = NO;
+
+        _actionBtn.frame = CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 60 , 100, 44);
+
+        _remindBtn.frame = CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 115 , 100, 30);
+
+
+    }else{
+        _actionBtn.frame = CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 85 , 100, 44);
+        _remindBtn.hidden = YES;
+    }
+
+
+}
+
 // 初始化 设置背景颜色透明点，然后加载子视图
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -54,7 +75,7 @@ static NSString *indentify = @"MJJCollectionViewCell";
 
     [self addSubview:self.actionBtn];
 
-//    [self addRemindBtn];
+    [self addRemindBtn];
 
 }
 
@@ -107,19 +128,6 @@ static NSString *indentify = @"MJJCollectionViewCell";
 
     _showRemindBtn = showRemindBtn;
 
-    if (_showRemindBtn) {
-
-        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 35 , 100, 44)];
-
-        _remindBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 80 , 100, 44)];
-
-        _remindBtn.hidden = NO;
-        
-    }else{
-        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 70 , 100, 44)];
-        _remindBtn.hidden = YES;
-    }
-
 }
 
 
@@ -134,7 +142,7 @@ static NSString *indentify = @"MJJCollectionViewCell";
         flow.needAlpha = YES;
         flow.delegate = self;
         CGFloat oneX =self.width / 4;
-        flow.sectionInset = UIEdgeInsetsMake(30, oneX, 50, oneX);
+        flow.sectionInset = UIEdgeInsetsMake(20, oneX, 80, oneX);
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height) collectionViewLayout:flow];
         _collectionView.backgroundColor = [UIColor redColor];
@@ -148,8 +156,8 @@ static NSString *indentify = @"MJJCollectionViewCell";
 
 - (UIButton *)actionBtn{
     if (!_actionBtn) {
-        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 80 , 100, 44)];
-        _actionBtn.backgroundColor = [UIColor redColor];
+        _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 50 , 100, 44)];
+        _actionBtn.backgroundColor = [UIColor blueColor];
         [_actionBtn setTitle:@"血糖数据 >" forState:UIControlStateNormal];
         [_actionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_actionBtn addTarget:self action:@selector(clickDataBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -169,7 +177,7 @@ static NSString *indentify = @"MJJCollectionViewCell";
 - (UIButton *)remindBtn{
 
     if (!_remindBtn) {
-        _remindBtn = [[UIButton alloc] init];
+        _remindBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 115 , 100, 30)];
         _remindBtn.backgroundColor = [UIColor greenColor];
         [_remindBtn setTitle:@"12:59:33" forState:UIControlStateNormal];
         [_remindBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -204,8 +212,24 @@ static NSString *indentify = @"MJJCollectionViewCell";
 
     if (scrollView.contentOffset.x > 100) {
         self.actionBtn.titleLabel.text = @"血压数据 >";
+
+        [UIView animateWithDuration:0.4 animations:^{
+
+            self.remindBtn.alpha = (100 - scrollView.contentOffset.x)  / 100;
+;
+            _actionBtn.frame = CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 85 , 100, 44);
+
+        }];
+
     }else{
         self.actionBtn.titleLabel.text = @"血糖数据 >";
+
+        [UIView animateWithDuration:0.4 animations:^{
+
+            self.remindBtn.alpha = (100 - scrollView.contentOffset.x)  / 100;
+            _actionBtn.frame = CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 60 , 100, 44);
+        }];
+
     }
 
 }

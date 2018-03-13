@@ -24,9 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.popView.showRemindBtn = YES;
 
     [self.popView showInSuperView:self.view];
-//    self.popView.showRemindBtn = NO;
 
 }
 
@@ -52,7 +52,7 @@
 - (MJJMainPopoutView *)popView
 {
     if (_popView == nil) {
-        _popView = [[MJJMainPopoutView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.60)];
+        _popView = [[MJJMainPopoutView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.63)];
         _popView.dataSource = self.dataSource;
         _popView.backgroundColor = [UIColor greenColor];
         _popView.delegate = self;
