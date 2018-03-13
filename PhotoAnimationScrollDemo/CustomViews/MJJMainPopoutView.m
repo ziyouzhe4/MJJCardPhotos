@@ -16,8 +16,6 @@
 
 // 血糖/血压 按钮
 @property (nonatomic,strong)UIButton *actionBtn;
-//2 小时提醒按钮
-@property (nonatomic,strong)UIButton *remindBtn;
 
 
 @end
@@ -64,6 +62,7 @@ static NSString *indentify = @"MJJCollectionViewCell";
         _selectedIndex = 0;
         self.backgroundColor = RGB(51, 51, 51, 0.5);
         [self addsubviews];
+        self.remindBtn.userInteractionEnabled = NO;
     }
     return self;
 }
@@ -145,7 +144,7 @@ static NSString *indentify = @"MJJCollectionViewCell";
         flow.sectionInset = UIEdgeInsetsMake(20, oneX, 80, oneX);
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height) collectionViewLayout:flow];
-        _collectionView.backgroundColor = [UIColor redColor];
+        _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsHorizontalScrollIndicator = NO;
@@ -157,7 +156,7 @@ static NSString *indentify = @"MJJCollectionViewCell";
 - (UIButton *)actionBtn{
     if (!_actionBtn) {
         _actionBtn = [[UIButton alloc] initWithFrame:CGRectMake(_collectionView.centerX - 50, self.frame.size.height - 50 , 100, 44)];
-        _actionBtn.backgroundColor = [UIColor blueColor];
+        _actionBtn.backgroundColor = [UIColor clearColor];
         [_actionBtn setTitle:@"血糖数据 >" forState:UIControlStateNormal];
         [_actionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_actionBtn addTarget:self action:@selector(clickDataBtn) forControlEvents:UIControlEventTouchUpInside];

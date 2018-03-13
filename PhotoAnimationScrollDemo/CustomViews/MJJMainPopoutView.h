@@ -30,4 +30,8 @@
 
 @property (nonatomic,assign)BOOL showRemindBtn;
 
+//2 小时提醒按钮
+@property (nonatomic,strong)UIButton *remindBtn;
+
+
 @end
