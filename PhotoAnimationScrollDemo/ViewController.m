@@ -83,6 +83,8 @@
     self.measureView.backgroundColor = [UIColor whiteColor];
     self.measureView.layer.masksToBounds = YES;
     [self.bottomView addSubview:self.measureView];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapMeasure)];
+    [self.measureView addGestureRecognizer:tap];
     self.measureBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, self.measureView.frame.size.height / 2 - 20, self.measureView.frame.size.width - 20, 40)];
     [self.measureBtn setTitle:@"开始测量" forState:UIControlStateNormal];
     self.measureBtn.titleLabel.font = [UIFont systemFontOfSize:10];
@@ -108,6 +110,12 @@
 
 
     [self performSelector:@selector(secondAnimation) withObject:nil afterDelay:3];
+
+}
+
+- (void)tapMeasure{
+
+    NSLog(@"tapMeasure");
 
 }
 
@@ -140,7 +148,7 @@
         self.contectLabel.alpha = 1;
         self.armImg.frame = CGRectMake((self.view.frame.size.width - 360 ) / 2, 90, 360, 250);
         self.contectLabel.text = @"如图所示戴好袖带";
-
+        self.contectLabel.textColor = [UIColor colorWithHexString:@"6d6d6d"];
 
     } completion:nil];
 
