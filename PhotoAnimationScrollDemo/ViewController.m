@@ -168,19 +168,21 @@
 
     [UIView commitAnimations];
 
-//    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//    anim.fromValue = [NSNumber numberWithFloat:1.f];
-//    anim.toValue = [NSNumber numberWithFloat:1.4f];
-//    anim.duration = 0.5;
-//    anim.removedOnCompletion = YES;
-//    anim.repeatCount = 1;
-//    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    [self.measureView.layer addAnimation:anim forKey:nil];
-
 }
 
 
 - (void)firstAnimation{
+
+//    [UIView animateWithDuration:1.5 animations:^{
+//
+//        self.circleImg.transform = CGAffineTransformMakeRotation(-M_PI * 2);
+//
+//    } completion:^(BOOL finished) {
+//
+//    }];
+
+    
+
 
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         //默认是顺时针效果，若将fromValue和toValue的值互换，则为逆时针效果
