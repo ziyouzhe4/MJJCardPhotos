@@ -180,20 +180,10 @@ static NSString *indentify = @"MJJCollectionViewCell";
         _remindBtn.backgroundColor = [UIColor greenColor];
         [_remindBtn setTitle:@"12:59:33" forState:UIControlStateNormal];
         [_remindBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_remindBtn addTarget:self action:@selector(clickRemindBtn) forControlEvents:UIControlEventTouchUpInside];
 
     }
     return _remindBtn;
 }
-
-- (void)clickRemindBtn{
-
-    if ([self.delegate respondsToSelector:@selector(clickRemindBtn)]) {
-        [self.delegate clickRemindBtn];
-    }
-}
-
-
 
 #pragma CustomLayout的代理方法
 - (void)collectioViewScrollToIndex:(NSInteger)index

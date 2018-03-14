@@ -16,10 +16,6 @@
 // 点击测量血糖或者测量血压
 - (void)clickMeasure:(NSInteger)selectedIndex;
 
-// 点击测量血糖或者测量血压
-- (void)clickRemindBtn;
-
-
 @end
 
 @interface MJJMainPopoutView : UIView
