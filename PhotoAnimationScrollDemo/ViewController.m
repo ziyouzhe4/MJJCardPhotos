@@ -26,6 +26,7 @@
 @property (nonatomic,strong)UIButton *measureBtn;
 @property (nonatomic,strong)UILabel *batteryLabel;
 
+@property (nonatomic,strong)UIImageView *armImg;
 
 // 轮播图
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -96,6 +97,16 @@
     self.batteryLabel.backgroundColor = [UIColor clearColor];
     [self.bottomView addSubview:self.batteryLabel];
 
+
+    // 添加手臂的图片
+    ;
+    self.armImg = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - 360 ) / 2, 110, 360, 250)];
+    self.armImg.image = [UIImage imageNamed:@"pic"];
+    self.armImg.alpha = 0;
+    [self.view addSubview:self.armImg];
+
+
+
     [self performSelector:@selector(secondAnimation) withObject:nil afterDelay:3];
 
 }
@@ -104,9 +115,12 @@
 
     [self.circleImg removeFromSuperview];
     [self.staticIcon removeFromSuperview];
-    [self.contectLabel removeFromSuperview];
+    self.contectLabel.alpha = 0;
 
     [self performSelector:@selector(thirdAnimation) withObject:nil afterDelay:0.5];
+
+    [self performSelector:@selector(armAnimation) withObject:nil afterDelay:0.1];
+
 
     [UIView animateWithDuration:1 animations:^{
 
@@ -115,6 +129,20 @@
 
     }];
 
+
+}
+
+- (void)armAnimation{
+
+    [UIView animateWithDuration:0.5 animations:^{
+
+        self.armImg.alpha = 1;
+        self.contectLabel.alpha = 1;
+        self.armImg.frame = CGRectMake((self.view.frame.size.width - 360 ) / 2, 90, 360, 250);
+        self.contectLabel.text = @"如图所示戴好袖带";
+
+
+    } completion:nil];
 
 }
 
