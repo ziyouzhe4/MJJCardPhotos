@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MeasureBloodFaild">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="measurefaildIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8d3-XT-Txg">
+                    <rect key="frame" x="147.5" y="90" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8d3-XT-Txg" secondAttribute="height" multiplier="1:1" id="Xik-1f-ocG"/>
+                        <constraint firstAttribute="width" constant="80" id="bYz-2G-MOD"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="连接失败" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXg-SK-mFv">
+                    <rect key="frame" x="144.5" y="190" width="85.5" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" red="0.3529411764705882" green="0.68627450980392157" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="建议做以下操作" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-RJ-jTb">
+                    <rect key="frame" x="103.5" y="241" width="107.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. 将手机蓝牙重新开关一次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-wd-OUo">
+                    <rect key="frame" x="103.5" y="269" width="183" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. 按以下血压计的复位键再试" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9F-mV-ekP">
+                    <rect key="frame" x="103.5" y="297" width="200.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. 确认血压计有电" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G35-mZ-Qqv">
+                    <rect key="frame" x="103.5" y="325" width="124" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kzf-oj-CBM">
+                    <rect key="frame" x="105" y="383" width="165" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="2Mp-KI-dbA"/>
+                        <constraint firstAttribute="width" constant="165" id="bhN-1Z-KkB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="重新连接">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="reconnectAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Zcv-LM-Pc8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8d3-XT-Txg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="70" id="74v-Ga-I6T"/>
+                <constraint firstItem="Kzf-oj-CBM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="7bk-uo-gQe"/>
+                <constraint firstItem="Zyc-wd-OUo" firstAttribute="top" secondItem="ehO-RJ-jTb" secondAttribute="bottom" constant="10" id="7wn-mK-2d6"/>
+                <constraint firstItem="ehO-RJ-jTb" firstAttribute="centerX" secondItem="fXg-SK-mFv" secondAttribute="centerX" constant="-30" id="AjX-7o-jr0"/>
+                <constraint firstItem="fXg-SK-mFv" firstAttribute="top" secondItem="8d3-XT-Txg" secondAttribute="bottom" constant="20" id="Arf-Xo-aAc"/>
+                <constraint firstItem="8d3-XT-Txg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="JOP-5x-WpL"/>
+                <constraint firstItem="ehO-RJ-jTb" firstAttribute="top" secondItem="fXg-SK-mFv" secondAttribute="bottom" constant="25" id="K9Y-vH-5fB"/>
+                <constraint firstItem="fXg-SK-mFv" firstAttribute="centerX" secondItem="8d3-XT-Txg" secondAttribute="centerX" id="ViG-bP-fVC"/>
+                <constraint firstItem="G35-mZ-Qqv" firstAttribute="leading" secondItem="w9F-mV-ekP" secondAttribute="leading" id="hJM-Zb-iL9"/>
+                <constraint firstItem="G35-mZ-Qqv" firstAttribute="top" secondItem="w9F-mV-ekP" secondAttribute="bottom" constant="10" id="jxa-6z-Bua"/>
+                <constraint firstItem="Zyc-wd-OUo" firstAttribute="leading" secondItem="ehO-RJ-jTb" secondAttribute="leading" id="kAj-Ls-mCE"/>
+                <constraint firstItem="Kzf-oj-CBM" firstAttribute="top" secondItem="G35-mZ-Qqv" secondAttribute="bottom" constant="40" id="mBZ-rd-yhS"/>
+                <constraint firstItem="w9F-mV-ekP" firstAttribute="top" secondItem="Zyc-wd-OUo" secondAttribute="bottom" constant="10" id="mX1-wL-Qpa"/>
+                <constraint firstItem="w9F-mV-ekP" firstAttribute="leading" secondItem="Zyc-wd-OUo" secondAttribute="leading" id="vcQ-Un-PEG"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="reConnectBtn" destination="Kzf-oj-CBM" id="G8e-pp-erl"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="measurefaildIcon" width="64" height="64"/>
+    </resources>
+</document>
