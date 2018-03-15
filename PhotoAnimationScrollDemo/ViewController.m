@@ -17,8 +17,10 @@
 
 @interface ViewController () <MJJMainPopoutViewDelegate>
 
-// 血压连接
+// 趋势图
 
+
+// 血压连接
 @property (nonatomic,strong)MeasureBloodView *measureBloodView;
 @property (nonatomic,strong)MeasureBloodFaild *measureFaildView;
 
@@ -35,18 +37,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"血压测量";
+    //趋势图 / 折线图
+
 
     // 1. 连接血压过程的动画
-    [self configMeasureView];
+//    [self configMeasureView];
 
     // 2.  以下 是 左右滚动 视图
 //    [self scrollAnimation];
+
+
 }
 
 // ----------------------以下是 测量血压相关方法 -------------------------- //
 
 - (void)configMeasureView{
+
+    self.title = @"血压测量";
 
     __weak typeof(self) WeakSelf = self;
 

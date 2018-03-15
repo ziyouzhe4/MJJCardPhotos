@@ -1,12 +1,17 @@
 PODS:
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
   - Masonry (1.0.1)
 
 DEPENDENCIES:
+  - Charts
   - Masonry
 
 SPEC CHECKSUMS:
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
 
-PODFILE CHECKSUM: c23d176c4ffcbd1459923a38ca334a4d71c6f5af
+PODFILE CHECKSUM: 4481c700d5dfd9c9cbae28587847cc514b8d6a9e
 
 COCOAPODS: 1.4.0
