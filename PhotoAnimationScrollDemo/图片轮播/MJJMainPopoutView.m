@@ -3,7 +3,7 @@
 #import "MJJConstant.h"
 #import "NSArray+Extension.h"
 #import "UIView+Extension.h"
-#import <Masonry.h>
+#import "Masonry.h"
 #import "MJJCollectionViewCell.h"
 #import "MJJCollectionViewFlowLayout.h"
 #import "MJJItemModel.h"
